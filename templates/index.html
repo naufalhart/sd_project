@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Shinta Dewi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../static/css/output.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../static/assets/logo-header.jpg">
+</head>
+<body>
+  <!-- Add backdrop div -->
+  
+  {% include 'navbar.html' %}
+
+  <div class="bg-pink-50" style="margin:-30px; padding-bottom:30px">
+    <div class="mx-auto max-w-2xl px-4 mb-6 pb-8 sm:px-4 sm:py-10 lg:max-w-7xl lg:px-8">
+      <div class="flex justify-between items-center">
+        <h2 class="helvetica-text text-2xl italic font-extrabold tracking-tight text-gray-900">
+          {% if category == 'all' %}
+              All Category
+          {% else %}
+              {{ category }}
+          {% endif %}
+      </h2>
+        
+        
+        <!-- Filter Dropdown -->
+        <li class="relative group list-none">
+          <button class="helvetica-text text-sm w-auto bg-white hover:bg-gray-100 text-yellow-600 py-1 px-2 border border-gray-400 shadow flex items-center justify-between">
+            Sort By
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="dropdown-content mt-2 bg-white border border-gray-200 rounded shadow-lg right-0">
+            <a href="{{ url_for('index', sort_by='default') }}" 
+              class="georgia-text block px-4 py-2 text-sm hover:bg-gray-100 {% if sort_by == 'default' %}font-bold text-yellow-600{% endif %}">
+                Default
+            </a>
+            <a href="{{ url_for('index', sort_by='name_asc') }}" 
+              class="georgia-text block px-4 py-2 text-sm hover:bg-gray-100 {% if sort_by == 'name_asc' %}font-bold text-yellow-600{% endif %}">
+                Alphabet: A-Z
+            </a>
+            <a href="{{ url_for('index', sort_by='name_desc') }}" 
+              class="georgia-text block px-4 py-2 text-sm hover:bg-gray-100 {% if sort_by == 'name_desc' %}font-bold text-yellow-600{% endif %}">
+                Alphabet: Z-A
+            </a>
+            <a href="{{ url_for('index', sort_by='price_low') }}" 
+              class="georgia-text block px-4 py-2 text-sm hover:bg-gray-100 {% if sort_by == 'price_low' %}font-bold text-yellow-600{% endif %}">
+                Price: Low to High
+            </a>
+            <a href="{{ url_for('index', sort_by='price_high') }}" 
+              class="georgia-text block px-4 py-2 text-sm hover:bg-gray-100 {% if sort_by == 'price_high' %}font-bold text-yellow-600{% endif %}">
+                Price: High to Low
+            </a>
+          </div>
+        </li>
+      </div>
+  
+      <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+
+        {% for name, details in products.items() %}
+          <div class="group relative">
+              <img src="{{ url_for('static', filename='assets/' + details.image[0]) }}" 
+                  alt="{{ name }}"
+                  class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
+              
+              <div class="mt-4 flex-col justify-between items-center text-center">
+                  <div>
+                      <h1 class="text-gray-900 font-semibold georgia-text">
+                          <a href="{{ url_for('product_detail', slug=name|slugify) }}">
+                              <span aria-hidden="true" class="absolute inset-0"></span>
+                              {{ name }}
+                          </a>
+                      </h1>
+                  </div>
+                  <p class="helvetica-text italic text-sm text-gray-700 mt-1">IDR {{ details.price }}</p>
+                  <p class="text-xs text-gray-900 mt-1 georgia-text text-bold">Category: {{ details.category }}</p>
+              </div>
+          </div>
+      {% endfor %}
+
+      
+            <!-- More products... -->
+            
+          </div>
+        </div>
+      </div>      
+      
+      
+      {% include 'footer.html' %}
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+    "Kirana Set": {
+        "price": "1.250.000",
+        "colors": ["Maroon", "Mauve", "Sage", "Black", "Pink", "Mocca", "Blue"],
+        "image": ["FPK2023062065.JPG", "Amanda_Blink_Sage.jpg"],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium lacus erat, sed ullamcorper eros euismod et. Praesent fermentum lorem et nibh bibendum tincidunt. Donec imperdiet lorem libero, at accumsan eros lacinia vestibulum. Quisque quam risus, maximus vitae blandit et, consequat sit amet enim. Donec ut dapibus ante, id tincidunt odio. Maecenas ut nisi in lorem volutpat dictum ac at ex. Aliquam vitae nisi non augue gravida laoreet a et sem. Aliquam tempor euismod urna vel pretium. Pellentesque eget convallis ipsum, eget eleifend sem. Proin at posuere risus, sed condimentum odio. Cras fringilla tellus a aliquet condimentum.",
+        "category": "Dress"
+    },
+    "Ameena": {
+        "price": "1.500.000",
+        "colors": ["Black Gold", "Black BW..."],
+        "image": ["FPK202306206.JPG"],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium lacus erat, sed ullamcorper eros euismod et. Praesent fermentum lorem et nibh bibendum tincidunt. Donec imperdiet lorem libero, at accumsan eros lacinia vestibulum. Quisque quam risus, maximus vitae blandit et, consequat sit amet enim. Donec ut dapibus ante, id tincidunt odio. Maecenas ut nisi in lorem volutpat dictum ac at ex. Aliquam vitae nisi non augue gravida laoreet a et sem. Aliquam tempor euismod urna vel pretium. Pellentesque eget convallis ipsum, eget eleifend sem. Proin at posuere risus, sed condimentum odio. Cras fringilla tellus a aliquet condimentum.",
+        "category": "Dress"
+    },
+    "Abaya Lace": {
+        "price": "1.350.000",
+        "colors": ["White"],
+        "image": ["FPK2023062065.JPG"],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium lacus erat, sed ullamcorper eros euismod et. Praesent fermentum lorem et nibh bibendum tincidunt. Donec imperdiet lorem libero, at accumsan eros lacinia vestibulum. Quisque quam risus, maximus vitae blandit et, consequat sit amet enim. Donec ut dapibus ante, id tincidunt odio. Maecenas ut nisi in lorem volutpat dictum ac at ex. Aliquam vitae nisi non augue gravida laoreet a et sem. Aliquam tempor euismod urna vel pretium. Pellentesque eget convallis ipsum, eget eleifend sem. Proin at posuere risus, sed condimentum odio. Cras fringilla tellus a aliquet condimentum.",
+        "category": "Dress"
+    },
+    "Amanda Set": {
+        "price": "1.250.000",
+        "colors": ["Lilac", "Cream", "Dusty Pink"],
+        "image": ["Amanda_Blink_Sage.jpg"],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium lacus erat, sed ullamcorper eros euismod et. Praesent fermentum lorem et nibh bibendum tincidunt. Donec imperdiet lorem libero, at accumsan eros lacinia vestibulum. Quisque quam risus, maximus vitae blandit et, consequat sit amet enim. Donec ut dapibus ante, id tincidunt odio. Maecenas ut nisi in lorem volutpat dictum ac at ex. Aliquam vitae nisi non augue gravida laoreet a et sem. Aliquam tempor euismod urna vel pretium. Pellentesque eget convallis ipsum, eget eleifend sem. Proin at posuere risus, sed condimentum odio. Cras fringilla tellus a aliquet condimentum.",
+        "category": "Men Shirt"
+    },
+    "Ruby Kebaya": {
+        "price": "1.250.000",
+        "colors": ["Dusty Pink", "Latte", "Baby Blue"],
+        "image": ["Amanda_Blink_Sage.jpg"],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium lacus erat, sed ullamcorper eros euismod et. Praesent fermentum lorem et nibh bibendum tincidunt. Donec imperdiet lorem libero, at accumsan eros lacinia vestibulum. Quisque quam risus, maximus vitae blandit et, consequat sit amet enim. Donec ut dapibus ante, id tincidunt odio. Maecenas ut nisi in lorem volutpat dictum ac at ex. Aliquam vitae nisi non augue gravida laoreet a et sem. Aliquam tempor euismod urna vel pretium. Pellentesque eget convallis ipsum, eget eleifend sem. Proin at posuere risus, sed condimentum odio. Cras fringilla tellus a aliquet condimentum.",
+        "category": "Men Shirt"
+    }
+}

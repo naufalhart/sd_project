@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results - {{ query }}</title>
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../static/assets/logo-header.jpg">
+</head>
+<body>
+    <!-- Navbar bisa diinclude dari template terpisah -->
+    {% include 'navbar.html' %}
+
+    <div class="bg-pink-50" style="margin:-30px; padding-bottom:30px">
+        <div class="mx-auto max-w-screen-lg px-4 mb-6 py-8 sm:px-4 sm:py-10">
+            <h2 class="helvetica-text italic text-2xl font-bold tracking-tight text-gray-900">
+                Search Results for "{{ query }}"
+            </h2>
+            
+            {% if products %}
+                <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                    {% for name, details in products.items() %}
+                    <div class="group relative">
+                        <img src="{{ url_for('static', filename='assets/' + details.image[0]) }}" 
+                             alt="{{ name }}" 
+                             class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80">
+                              
+                        <div class="mt-4 flex-col justify-between items-center text-center">
+                            <div>
+                                <h1 class="text-gray-900 font-semibold georgia-text">
+                                    <a href="{{ url_for('product_detail', slug=name|slugify) }}">
+                                        <span aria-hidden="true" class="absolute inset-0"></span>
+                                        {{ name }}
+                                    </a>
+                                </h1>
+                            </div>
+                            <p class="helvetica-text italic text-sm text-gray-700 mt-1">IDR {{ details.price }}</p>
+                            <p class="text-xs text-gray-900 mt-1 georgia-text text-bold">Category: {{ details.category }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="mt-6 text-center py-10">
+                    <p class="text-gray-500 helvetica-text">No products found matching "{{ query }}"</p>
+                    <a href="{{ url_for('index') }}" class="mt-4 inline-block text-yellow-600 hover:text-yellow-800 helvetica-text">
+                        Return to Home
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% include 'footer.html' %} 
+</body>
+</html>

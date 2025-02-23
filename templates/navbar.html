@@ -1,0 +1,68 @@
+<div class="backdrop" id="menu-backdrop"></div>
+
+<nav class="bg-pink-100 border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="{{ url_for('index') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="../static/assets/logo.png" class="h-12" alt="ShintaDewi" />
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-pink-100 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="{{ url_for('index') }}" class="helvetica-text text-lg px-1 text-l tracking-tight text-yellow-600 hover:text-yellow-800" aria-current="page">Home</a>
+          </li>
+          <li class="relative group">
+            <button class="helvetica-text text-lg flex items-center px-1 text-l tracking-tight text-yellow-600 hover:text-yellow-800">
+              Category
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="dropdown-content mt-2">
+              <a href="{{ url_for('index', category='all') }}" 
+                class="helvetica-text block px-4 py-2 text-sm text-yellow-600 hover:bg-gray-100">
+                All Category
+              </a>
+
+              {% set categories = ["Dress", "Tunic", "Kebaya", "Daily wear", "Men Shirt"] %}
+              {% for cat in categories %}
+              <a href="{{ url_for('index', category=cat) }}" 
+                class="helvetica-text block px-4 py-2 text-sm text-yellow-600 hover:bg-gray-100">
+                {{ cat }}
+              </a>
+              {% endfor %}
+            </div>
+          </li>
+          <li>
+            <a href="{{ url_for('index') }}" class="helvetica-text text-lg px-1 text-l tracking-tight text-yellow-600 hover:text-yellow-800">All Designs</a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/shintadewi_batik/" class="helvetica-text text-lg px-1 text-l tracking-tight text-yellow-600 hover:text-yellow-800">Instagram</a>
+          </li>
+          <li class="relative">
+            <form action="{{ url_for('search') }}" method="GET" class="flex items-center">
+              <input type="text" 
+                     name="q" 
+                     placeholder="Search products..." 
+                     class="placeholder-font-helvetica hidden md:block px-4 py-1 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-200"
+                     required
+              >
+              <button type="submit" class="ml-2">
+                <img src="{{ url_for('static', filename='assets/search.png') }}" class="px-1 h-5 hidden md:block">
+              </button>
+            </form>
+          </li>
+          <li>
+            <a href="{{ url_for('cart') }}">
+              <img src="../static/assets/shopping-cart.png" class="px-1 h-5">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

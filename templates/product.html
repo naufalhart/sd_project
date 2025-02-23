@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Shinta Dewi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../static/css/output.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../static/assets/logo-header.jpg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+  <!-- Add backdrop div -->
+  
+  {% include 'navbar.html' %}
+
+  <div class="bg-pink-50" style="margin:-30px; padding-bottom:30px;">
+  <div class="container mx-auto px-4 py-8">
+    <div class="bg-pink-50 shadow-lg overflow-hidden">
+        <div class="md:flex">
+            <!-- Gambar Produk (Kiri) -->
+            <div class="md:w-1/2">
+                <div class="h-full">
+                    <!-- Carousel utama -->
+                    <div class="swiper main-slider">
+                        <div class="swiper-wrapper">
+                            {% for img in details.image %}
+                            <div class="swiper-slide">
+                                <img class="w-full h-full object-cover rounded-lg" 
+                                    src="{{ url_for('static', filename='assets/' + img) }}" 
+                                    alt="{{ name }}">
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <!-- Navigasi -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+
+                    <!-- Thumbnail preview -->
+                    <div class="swiper thumbnail-slider mt-4">
+                        <div class="swiper-wrapper">
+                            {% for img in details.image %}
+                            <div class="swiper-slide">
+                                <img src="{{ url_for('static', filename='assets/' + img) }}" 
+                                    alt="{{ name }}" class="w-full h-full object-cover rounded-lg">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>            
+
+            <!-- Detail Produk (Kanan) -->
+            <div class="md:w-1/2 p-8">
+                <div class="mb-4">
+                    <h1 class="text-gray-900 font-semibold georgia-text text-2xl mb-2">{{ name }}</h1>
+                    <p class="helvetica-text italic text-lg text-yellow-600 mb-4">
+                        IDR {{ details.price }}
+                    </p>
+                </div>
+
+                <div class="mb-6">
+                    <h2 class="text-gray-700 font-semibold mb-2">Description</h2>
+                    <p class="text-gray-600">{{ details.description }}</p>
+                </div>
+
+                <!-- Tombol Beli -->
+                <form id="cart-form" action="{{ url_for('add_to_cart', product_id=slugify(name)) }}" method="POST">
+                    <button type="submit" class="flex items-center bg-yellow-600 hover:bg-yellow-800 text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow georgia-text">
+                        Add To Cart   
+                        <img src="../static/assets/shopping-cart.png" class="h-5 ml-2">
+                    </button>
+                </form>
+
+                <div id="success-alert" style="display: none;" class="mt-4 p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 flex justify-between items-center" role="alert">
+                    <span>
+                        <span class="font-medium">Success alert!</span> Item added to cart successfully.
+                    </span>
+                    <button onclick="dismissAlert()" class="ml-4 text-green-800 dark:text-green-400 font-bold">✖</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+  
+  {% include 'footer.html' %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</body>
+</html>
